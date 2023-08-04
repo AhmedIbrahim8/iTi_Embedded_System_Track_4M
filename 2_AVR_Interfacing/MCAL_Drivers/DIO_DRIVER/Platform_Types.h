@@ -61,7 +61,7 @@ typedef signed char          sint8_least;
 typedef signed short         sint16_least;
 typedef signed int           sint32_least;
 
-typedef float                float32
-typedef double               float64
+typedef float                float32;
+typedef double               float64;
 
 #endif

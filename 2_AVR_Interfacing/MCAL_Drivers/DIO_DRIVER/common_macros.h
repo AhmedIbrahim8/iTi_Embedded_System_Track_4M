@@ -9,21 +9,21 @@
  * */
 #define COMMON_MACROS_H_
 
-#define SET_BIT(REG,BIT_NUM)   ((REG)=(REG)|((1<<(BIT_NUM)))) /*To put logic 1 inside bit */
+#define SET_BIT(REG,BIT_NUM)       ((REG)=(REG)|((1<<(BIT_NUM)))) /*To put logic 1 inside bit */
 
-#define CLEAR_BIT(REG,BIT_NUM)   ((REG)=(REG)&(~(1<<(BIT_NUM)))) /*To put logic 0 inside bit */
+#define CLEAR_BIT(REG,BIT_NUM)     ((REG)=(REG)&(~(1<<(BIT_NUM)))) /*To put logic 0 inside bit */
 
 #define TOGGLE_BIT(REG,BIT_NUM)    ((REG)=( REG )^(1<<(BIT_NUM))) /*To toggle the logic of the bit */
 
-#define BIT_IS_SET(REG,BIT_NUM)  ((REG)&((1<<(BIT_NUM)))) /*To check if the bit is 1 */
+#define BIT_IS_SET(REG,BIT_NUM)    ((REG)&((1<<(BIT_NUM)))) /*To check if the bit is 1 */
 
-#define BIT_IS_CLEAR(REG,BIT_NUM) (!((REG)&(1<<(BIT_NUM)))) /*To check if the bit is 0 */
+#define BIT_IS_CLEAR(REG,BIT_NUM)  (!((REG)&(1<<(BIT_NUM)))) /*To check if the bit is 0 */
 
-#define ROR(REG,BIT_NUM)  ((REG)=(((REG)>>(BIT_NUM))|((REG)<<((8*sizeof((REG)))-(BIT_NUM)))))
+#define ROR(REG,BIT_NUM)           ((REG)=(((REG)>>(BIT_NUM))|((REG)<<((8*sizeof((REG)))-(BIT_NUM)))))
 
-#define ROL(REG,BIT_NUM)  ((REG) = (((REG)<<(BIT_NUM) )|((REG)>>((8*sizeof((REG)))-(BIT_NUM)))))
+#define ROL(REG,BIT_NUM)           ((REG) = (((REG)<<(BIT_NUM) )|((REG)>>((8*sizeof((REG)))-(BIT_NUM)))))
 
-#define GET_BIT(REG,BIT_NUM)  (((REG)&(1<<(BIT_NUM)))>>(BIT_NUM))
+#define GET_BIT(REG,BIT_NUM)       (((REG)&(1<<(BIT_NUM)))>>(BIT_NUM))
 
 
 

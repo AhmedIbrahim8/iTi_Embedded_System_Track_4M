@@ -32,13 +32,17 @@ typedef enum{
 
 /* ATMega 16 register is 8-bits width so we need uint8 */
 /* Dio_PortLevelType is the value inside the port      */
-typedef uint8  Dio_PortLevelType;
+typedef uint8  Dio_PortLevelValue;
 
-typedef enum{
-	EOK,
-	ENOK,
-	PARAMETER_OUT_RANGE
-}tenuErrorStatus;
+typedef enum {
+	DIO_PIN_INPUT,DIO_PIN_OUTPUT
+}Dio_PinType;
+
+
+
+
+/* AVR ATMEGA32 number of pins */
+
 
 /*******************************************************************************
  *                            #s of the pins index                             *
@@ -98,5 +102,7 @@ tenuErrorStatus DIO_enuWritePin(Dio_ChannelType ChannelIdCpy,Dio_PinLevelValue P
 tenuErrorStatus DIO_enuReadPin(Dio_ChannelType ChannelIdCpy,Dio_PinLevelValue* PinValueCpy);
 
 tenuErrorStatus DIO_enuStatePullup(Dio_ChannelType ChannelIdCpy,Dio_InternalResistor PinInternalCpy);
+
+tenuErrorStatus DIO_enuWriteGroup(Dio_ChannelType* pau8PinNumCpy ,Dio_PinLevelValue* pau8PinValueCpy,uint8 u8Sizecpy);
 
 #endif /* DIO_INTERFACE_H_ */

@@ -24,6 +24,14 @@ typedef struct{
 	uint8 sw_patch_version;
 }Std_VersionInfoType;
 
+
+typedef enum{
+	EOK,
+	ENOK,
+	PARAMETER_OUT_RANGE
+}tenuErrorStatus;
+
+
 #define E_OK    	0x00
 #define E_NOT_OK    0x01
 
