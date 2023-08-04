@@ -1,7 +1,7 @@
 /******************************************************************************************/
 /*  Module       :   DIO                                                                  */
-/*  File Name    :   Dio_Program.c                                                      */
-/*  Description  :   File contains the Definitions of the functions used and data types    */
+/*  File Name    :   Dio_Program.c                                                        */
+/*  Description  :   File contains the Definitions of the functions used and data types   */
 /*  Author       :   Ahmed Ibrahim                                                        */
 /*  Date         :   04/08/2023                                                           */
 /******************************************************************************************/

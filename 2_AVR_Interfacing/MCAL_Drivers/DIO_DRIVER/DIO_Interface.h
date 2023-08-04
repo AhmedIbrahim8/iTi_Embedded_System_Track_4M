@@ -9,6 +9,7 @@
 #define DIO_INTERFACE_H_
 
 #include "Std_Types.h"
+#include "DIO_Cfg.h"
 
 /*******************************************************************************
  *                              Module Data Types                              *
