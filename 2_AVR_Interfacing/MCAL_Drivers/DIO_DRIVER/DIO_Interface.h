@@ -105,4 +105,8 @@ tenuErrorStatus DIO_enuStatePullup(Dio_ChannelType ChannelIdCpy,Dio_InternalResi
 
 tenuErrorStatus DIO_enuWriteGroup(Dio_ChannelType* pau8PinNumCpy ,Dio_PinLevelValue* pau8PinValueCpy,uint8 u8Sizecpy);
 
+tenuErrorStatus DIO_enuWritePort(Dio_PortType PortIdCpy,Dio_PortLevelValue PortValueCpy);
+
+tenuErrorStatus DIO_enuReadPort(Dio_PortType PortIdCpy,Dio_PortLevelValue* PortValueCpy);
+
 #endif /* DIO_INTERFACE_H_ */

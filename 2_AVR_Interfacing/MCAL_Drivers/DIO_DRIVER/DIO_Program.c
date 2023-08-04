@@ -143,3 +143,55 @@ tenuErrorStatus DIO_enuWriteGroup(Dio_ChannelType* pau8PinNumCpy ,Dio_PinLevelVa
 
 	return enuState;
 }
+
+
+/************************************************************************************
+* Function Name : DIO_enuWritePort
+* Description   : Function to write to specific port
+************************************************************************************/
+tenuErrorStatus DIO_enuWritePort(Dio_PortType PortIdCpy,Dio_PortLevelValue PortValueCpy){
+	tenuErrorStatus enuState=EOK;
+	switch(PortIdCpy){
+	case DIO_PORTA_INDEX:
+		PORTA=PortValueCpy;
+		break;
+	case DIO_PORTB_INDEX:
+		PORTB=PortValueCpy;
+		break;
+	case DIO_PORTC_INDEX:
+		PORTC=PortValueCpy;
+		break;
+	case DIO_PORTD_INDEX:
+		PORTD=PortValueCpy;
+		break;
+	default:
+		enuState=ENOK;
+	}
+	return enuState;
+
+}
+
+/************************************************************************************
+* Function Name : DIO_enuReadPort
+* Description   : Function to read from specific port
+************************************************************************************/
+tenuErrorStatus DIO_enuReadPort(Dio_PortType PortIdCpy,Dio_PortLevelValue* PortValueCpy){
+	tenuErrorStatus enuState=EOK;
+	switch(PortIdCpy){
+	case DIO_PORTA_INDEX:
+		*PortValueCpy=PINA;
+		break;
+	case DIO_PORTB_INDEX:
+		*PortValueCpy=PINB;
+		break;
+	case DIO_PORTC_INDEX:
+		*PortValueCpy=PINB;
+		break;
+	case DIO_PORTD_INDEX:
+		*PortValueCpy=PINB;
+		break;
+	default:
+		enuState=ENOK;
+	}
+	return enuState;
+}
