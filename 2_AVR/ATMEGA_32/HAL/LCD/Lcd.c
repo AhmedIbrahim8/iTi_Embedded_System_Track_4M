@@ -167,11 +167,11 @@ void LCD_voidClrScr(uint8 u8IndexCpy){
 
 void LCD_voidMoveCursor(uint8 u8IndexCpy,uint8 u8RowCpy,uint8 u8ColCpy){
 	uint8 cursorPosition;
-	if(u8RowCpy==1){
-		cursorPosition=LCD_LINE_1_BASE_ADDRESS+u8ColCpy;
+	if(u8RowCpy==0){
+		cursorPosition=LCD_LINE_0_BASE_ADDRESS+u8ColCpy;
 	}
 	else{
-		cursorPosition=LCD_LINE_2_BASE_ADDRESS+u8ColCpy;
+		cursorPosition=LCD_LINE_1_BASE_ADDRESS+u8ColCpy;
 	}
 	cursorPosition=cursorPosition|0x80;
 	LCD_voidSendCommand(u8IndexCpy,cursorPosition);

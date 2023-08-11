@@ -1,7 +1,7 @@
 #include "..\..\MCAL\DIO_DRIVER\DIO_Interface.h"
-#include "..\LCD\Lcd.h"
-#include "Keypad.h"
-/*
+#include "..\..\HAL\LCD\Lcd.h"
+#include "..\..\HAL\Keypad\Keypad.h"
+
 int main(){
 	uint8 keypad_state=KEYPAD_NOT_PRESSED;
 	DIO_Init();
@@ -15,4 +15,3 @@ int main(){
 	}
 
 }
-*/

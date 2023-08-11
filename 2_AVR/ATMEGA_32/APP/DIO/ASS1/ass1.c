@@ -4,7 +4,7 @@
 #include "..\..\..\HAL\LCD\Lcd.h"
 #include <util/delay.h>
 
-
+/*
 int main(){
 	uint8 seconds;
 	DIO_Init();
@@ -12,8 +12,9 @@ int main(){
 	SEV_Enable(SEV1_INDEX_NUMBER);
 	SEV_Enable(SEV2_INDEX_NUMBER);
 	while (1){
-
+*/
 		/* Green Led */
+/*
 		for(seconds=11;seconds>=2;seconds--){
 			LCD_voidClrScr(0);
 			LCD_voidMoveCursor(0,1,1);
@@ -24,7 +25,9 @@ int main(){
 			_delay_ms(5000);
 		}
 		DIO_enuWritePin(15,LEVEL_LOW);
+*/
 		/* Yellow Led */
+/*
 		for(seconds=4;seconds>=2;seconds--){
 			LCD_voidClrScr(0);
 			LCD_voidMoveCursor(0,1,1);
@@ -34,8 +37,10 @@ int main(){
 			DIO_enuWritePin(14,LEVEL_HIGH);
 			_delay_ms(5000);
 		}
+
 		DIO_enuWritePin(14,LEVEL_LOW);
-		/* RED Led*/
+*/		/* RED Led*/
+/*
 		for(seconds=11;seconds>=2;seconds--){
 			LCD_voidClrScr(0);
 			LCD_voidMoveCursor(0,1,1);
@@ -49,6 +54,7 @@ int main(){
 	}
 
 }
+
 
 /*   RED      PORT B   PIN 13
  *   YELLOW   PORT B   PIN 14

@@ -36,24 +36,24 @@
 #define        LCD_LEFT_RIGHT                    1
 
 
-#define        LCD_LINE_1_BASE_ADDRESS           0x00
-#define        LCD_LINE_2_BASE_ADDRESS           0x40
-#define        LCD_COL_1_INDEX                   0
-#define        LCD_COL_2_INDEX                   1
-#define        LCD_COL_3_INDEX                   2
-#define        LCD_COL_4_INDEX                   3
-#define        LCD_COL_5_INDEX                   4
-#define        LCD_COL_6_INDEX                   5
-#define        LCD_COL_7_INDEX                   6
-#define        LCD_COL_8_INDEX                   7
-#define        LCD_COL_9_INDEX                   8
-#define        LCD_COL_10_INDEX                  9
-#define        LCD_COL_11_INDEX                  10
-#define        LCD_COL_12_INDEX                  11
-#define        LCD_COL_13_INDEX                  12
-#define        LCD_COL_14_INDEX                  13
-#define        LCD_COL_15_INDEX                  14
-#define        LCD_COL_16_INDEX                  15
+#define        LCD_LINE_0_BASE_ADDRESS           0x00
+#define        LCD_LINE_1_BASE_ADDRESS           0x40
+#define        LCD_COL_0_INDEX                   0
+#define        LCD_COL_1_INDEX                   1
+#define        LCD_COL_2_INDEX                   2
+#define        LCD_COL_3_INDEX                   3
+#define        LCD_COL_4_INDEX                   4
+#define        LCD_COL_5_INDEX                   5
+#define        LCD_COL_6_INDEX                   6
+#define        LCD_COL_7_INDEX                   7
+#define        LCD_COL_8_INDEX                   8
+#define        LCD_COL_9_INDEX                   9
+#define        LCD_COL_10_INDEX                  10
+#define        LCD_COL_11_INDEX                  11
+#define        LCD_COL_12_INDEX                  12
+#define        LCD_COL_13_INDEX                  13
+#define        LCD_COL_14_INDEX                  14
+#define        LCD_COL_15_INDEX                  15
 /* Those command not finished, and we will ORing some bits with them to control the mode */
 #define        SET_DDRM_ADDRESS_COMMAND             0x80
 #define        FUNCTION_SET_COMMAND                 0x20

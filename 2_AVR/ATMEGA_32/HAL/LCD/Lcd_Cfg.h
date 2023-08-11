@@ -34,7 +34,7 @@
 /* LCD1 Modes Type */
 #define LCD1_MODE              LCD_8_BIT_MODE
 #define LCD1_LINE_MODE         LCD_TWO_LINE
-#define LCD1_FONT              LCD_FONT_5X11
+#define LCD1_FONT              LCD_FONT_5X7
 #define LCD1_CURSOR            LCD_CURSOR_OFF
 #define LCD1_CURSOR_BLINK      LCD_CURSOR_BLINK_ON
 #define LCD1_DISPLAY           LCD_DISPLAY_ON
