@@ -21,7 +21,7 @@ int main(){
 		while(keypad_state == KEYPAD_NOT_PRESSED){
 			keypad_state=KPD_u8GetPressedKey(KEYPAD1_INDEX);
 		}
-		while(keypad_state != '1' && keypad_state != '2' && keypad_state != 'C'){
+		while(keypad_state != '1' && keypad_state != '2' && keypad_state != 'c'){
 			LCD_voidClrScr(LCD1_INDEX_NUMBER);
 			LCD_displayStringRowColumn(LCD1_INDEX_NUMBER,0,0,"Not Valid Mode....");
 			LCD_displayStringRowColumn(LCD1_INDEX_NUMBER,1,0,"Please Try Again..");
@@ -38,10 +38,23 @@ int main(){
 		case '1':
 			LCD_voidClrScr(LCD1_INDEX_NUMBER);
 			Calculator();
+			while(keypad_state != KEYPAD_NOT_PRESSED){
+				keypad_state=KPD_u8GetPressedKey(KEYPAD1_INDEX);
+			}
+			while(keypad_state != 'c'){
+				keypad_state=KPD_u8GetPressedKey(KEYPAD1_INDEX);
+			}
+
 			break;
 		case '2':
 			LCD_voidClrScr(LCD1_INDEX_NUMBER);
 			Convert();
+			while(keypad_state != KEYPAD_NOT_PRESSED){
+				keypad_state=KPD_u8GetPressedKey(KEYPAD1_INDEX);
+			}
+			while(keypad_state != 'c'){
+				keypad_state=KPD_u8GetPressedKey(KEYPAD1_INDEX);
+			}
 			break;
 		case 'c':
 			LCD_voidClrScr(LCD1_INDEX_NUMBER);
@@ -144,7 +157,12 @@ void Calculator(void){
 				}
 			}
 			LCD_voidSendNumber( LCD1_INDEX_NUMBER,result);
-			_delay_ms(1000);
+			while(keypad_state != KEYPAD_NOT_PRESSED){
+				keypad_state=KPD_u8GetPressedKey(KEYPAD1_INDEX);
+			}
+			while(keypad_state != 'c'){
+				keypad_state=KPD_u8GetPressedKey(KEYPAD1_INDEX);
+			}
 			number1=0;
 			number2=0;
 			result=0;
@@ -218,7 +236,12 @@ void Decimal_To_Binary(void){
 			for(counter=8;counter>=1;counter--){
 				LCD_voidSendNumber(LCD1_INDEX_NUMBER,GET_BIT(number1,counter-1));
 			}
-			_delay_ms(1000);
+			while(keypad_state != KEYPAD_NOT_PRESSED){
+				keypad_state=KPD_u8GetPressedKey(KEYPAD1_INDEX);
+			}
+			while(keypad_state != 'c'){
+				keypad_state=KPD_u8GetPressedKey(KEYPAD1_INDEX);
+			}
 			break;
 		case 'c':
 			LCD_voidClrScr(LCD1_INDEX_NUMBER);
@@ -283,7 +306,12 @@ void Decimal_To_Hexa(void){
 			}
 			number2=(number1&0x0F);
 		}
-		_delay_ms(1000);
+		while(keypad_state != KEYPAD_NOT_PRESSED){
+			keypad_state=KPD_u8GetPressedKey(KEYPAD1_INDEX);
+		}
+		while(keypad_state != 'c'){
+			keypad_state=KPD_u8GetPressedKey(KEYPAD1_INDEX);
+		}
 		break;
 	case 'c':
 		LCD_voidClrScr(LCD1_INDEX_NUMBER);
