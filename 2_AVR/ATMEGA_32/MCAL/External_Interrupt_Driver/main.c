@@ -3,6 +3,8 @@
 #include "..\DIO_Driver\Dio_Interface.h"
 #include "..\DIO_Driver\Dio_Registers.h"
 #include "..\..\LIB\common_macros.h"
+
+/*
 void LED1(){
 	TOGGLE_BIT(PORTA,0);
 
@@ -29,3 +31,4 @@ int main(){
 	}
 	return 0;
 }
+*/
