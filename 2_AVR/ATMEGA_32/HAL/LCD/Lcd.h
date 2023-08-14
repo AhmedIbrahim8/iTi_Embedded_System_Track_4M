@@ -62,6 +62,8 @@
 #define        ENTRY_MODE_COMMAND                   0x04
 #define        RETURN_HOME_COMMAND                  0x02
 #define        CLEAR_DISPLAY_COMMAND                0x01
+#define        LCD_SHIFT_DISPLAY_RIGHT              0x1C
+#define        LCD_SHIFT_DISPLAY_LEFT               0x18
 
 /***************************************************************/
 /*                    Functions Prototypes                     */
@@ -83,6 +85,8 @@ void LCD_voidDisplayHex(uint8 u8IndexCpy,uint16 u16HexNumberCpy);
 
 void LCD_voidMoveCursor(uint8 u8IndexCpy,uint8 u8RowCpy,uint8 u8ColCpy);
 void LCD_displayStringRowColumn(uint8 u8IndexCpy,uint8 u8RowCpy,uint8 u8ColCpy,uint8 *pau8CharCpy);
+
+void LCD_sendSpecialCharacter(uint8 u8IndexCpy,uint8 u8CharacterIndex,uint8 u8CharacterLocation,uint8 pattern);
 
 /***************************************************************/
 /*                    Extern shared Variables                  */

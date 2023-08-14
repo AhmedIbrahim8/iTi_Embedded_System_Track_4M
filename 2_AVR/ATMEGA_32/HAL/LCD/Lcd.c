@@ -191,3 +191,13 @@ void LCD_displayStringRowColumn(uint8 u8IndexCpy,uint8 u8RowCpy,uint8 u8ColCpy,u
 		counter++;
 	}
 }
+
+
+void LCD_sendSpecialCharacter(uint8 u8IndexCpy,uint8 u8CharacterIndex,uint8 u8CharacterLocation,uint8 pattern){
+	/* Adjust address counter to the CGRAM */
+	uint8 location_command=0b01000000;
+	location_command = location_command | ((u8CharacterIndex*8)+u8CharacterLocation);
+	LCD_voidSendCommand(u8IndexCpy,location_command);
+	LCD_voidSendChar(u8IndexCpy,pattern);
+
+}

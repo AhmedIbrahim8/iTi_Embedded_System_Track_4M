@@ -27,9 +27,9 @@
 #define KEYPAD1_COL_3_PIN_INDEX      (uint8)23
 #define KEYPAD1_COL_PINS             {20,21,22,23}
 
-#define KEYPAD1_CONTENTS {{'7','8','9','/'},\
+#define KEYPAD1_CONTENTS {{'1','2','3','/'},\
 	                      {'4','5','6','*'},\
-						  {'1','2','3','-'},\
+						  {'7','8','9','-'},\
 						  {'c','0','=','+'}}
 
 
