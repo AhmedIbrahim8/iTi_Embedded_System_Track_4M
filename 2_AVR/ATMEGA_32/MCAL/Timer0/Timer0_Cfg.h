@@ -10,9 +10,9 @@
 #ifndef MCAL_TIMER0_TIMER0_CFG_H_
 #define MCAL_TIMER0_TIMER0_CFG_H_
 
-#define    TIMER0_MODE                           TIMER0_CTC_MODE
+#define    TIMER0_MODE                           TIMER0_FAST_PWM
 #define    TIMER0_OC0_NON_PWM   		         TOGGLE_OC0_ON_COMAPRE_MATCH
-#define	   TIMER0_OC0_FAST_PWM                   NORMAL_PORT_FAST_PWM
+#define	   TIMER0_OC0_FAST_PWM                   CLEAR_OCO_ON_COMPARE_MATCH_NON_INVERTING
 #define    TIMER0_OC0_PHASE_CORRECT_PWM	         NORMAL_PORT_PHASE_CORRECT_PWM
 
 

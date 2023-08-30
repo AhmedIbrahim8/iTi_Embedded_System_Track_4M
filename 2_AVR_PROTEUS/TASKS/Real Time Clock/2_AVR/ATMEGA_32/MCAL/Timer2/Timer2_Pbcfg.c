@@ -1,0 +1,9 @@
+#include "Timer2.h"
+
+Timer2_ConfigType Timer2_configuration={
+		TIMER2_CLOCK_SOURCE,
+		TIMER2_MODE,
+		TIMER2_OC2_NON_PWM,
+		TIMER2_OC2_FAST_PWM,
+		TIMER2_OC2_PHASE_CORRECT_PWM
+};

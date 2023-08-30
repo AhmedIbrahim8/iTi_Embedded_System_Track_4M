@@ -63,7 +63,13 @@ void TIMER1_voidEnableCompareBINT();
 /* Function to disable the compare match B interrupt */
 void TIMER1_voidDisableCompareBINT();
 
-
+/* Hard ware ICU Functions */
+void TIMER1_voidHWICUEnable(void);
+void TIMER1_voidHWICUDisable(void);
+void TIMER1_voidGetPWMTotalPeriod(uint32 *Copy_pu32TotalPeriod);
+void TIMER1_voidGetPWMDutyCycle(uint8 *Copy_pu8DutyCycle);
+void TIMER1_voidGetPWMOnPeriod(uint16 *Copy_pu16OnPeriod);
+void TIMER1_voidGetPWMOffPeriod(uint16 *Copy_pu16OffPeriod);
 
 /* Function to set the call back of the overflow mode */
 void TIMER1_voidTimer1OVFSetCallBack(void (*local_pf) (void));

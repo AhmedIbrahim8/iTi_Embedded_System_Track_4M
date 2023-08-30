@@ -14,12 +14,19 @@
 static void (*TIMER1_pfTimer1OVF)(void);
 static void (*TIMER1_pfTimer1CMPA)(void);
 static void (*TIMER1_pfTimer1CMPB)(void);
+
+volatile static uint16 HWICU_u16OnPeriod;
+volatile static uint16 HWICU_u16OffPeriod;
 /* Function responsible of :
  *     1 -  Adjust the mode of the Timer 1
  *     2 -  Adjust OCR1A and OCR1B Pins incase of
  *          NON-Pwm or Fast pwm or PHase correct Pwm   */
 void TIMER1_voidTimer1_Init(void){
+	/* 0000      11 11*/
+	/* 0. = 0000 00 11*/
 	TCCR1A = (TCCR1A & 0xFC) | (Timer1_configuration.mode & 0x03);
+	/* 0000      11 11*/
+	/* 0C = 0000 11 00*/
 	TCCR1B = (TCCR1B & 0xE7) | ((Timer1_configuration.mode & 0x0C)<<1);
 	switch(Timer1_configuration.mode){
 	/* In case of Non PWM Mode which is :   */
@@ -70,7 +77,7 @@ void TIMER1_voidTimer1_Init(void){
 
 /* Function Responsible for Adjusting the Pre-scaler to start the timer */
 void TIMER1_voidEnable(Timer1_PrescalerType PreScaler){
-	if(PreScaler < TIMER1_EXTERNAL_CLK_RISING_EDGE){
+	if(PreScaler <= TIMER1_EXTERNAL_CLK_RISING_EDGE){
 		/* 0xF8  => To mask the first 3 bits to be zero then or-ing with the pre-scaler*/
 		TCCR1B = (TCCR1B & 0xF8) | (PreScaler & 0x07);
 	}
@@ -113,6 +120,11 @@ void TIMER1_voidSetOCR1BValue(uint16 Copy_u16OCRBValue){
 /* Function to set the ICR1 value */
 void TIMER1_voidSetICR1Value(uint16 Copy_u16ICR1Value){
 	ICR1=Copy_u16ICR1Value;
+}
+
+/* Function to Read the ICR1 value */
+void TIMER1_voidReadICR1Value(uint16 *Copy_u16ICR1Value){
+	*Copy_u16ICR1Value=ICR1;
 }
 
 /* Function to enable the overflow interrupt */
@@ -226,6 +238,31 @@ void TIMER1_voidTimer1CMPBSetCallBack(void (*local_pf) (void))
 
 }
 
+/* Hard ware ICU Functions */
+void TIMER1_voidHWICUEnable(void){
+	/* Select the triggering interrupt source of the ICU
+	 * FALLING or RISING*/
+	SET_BIT(TCCR1B,ICES1);
+	/* Enable ICU Interrupt */
+	SET_BIT(TIMSK,TICIE1);
+}
+void TIMER1_voidHWICUDisable(void){
+	/* Disable ICU Interrupt */
+	CLEAR_BIT(TIMSK,TICIE1);
+}
+void TIMER1_voidGetPWMTotalPeriod(uint32 *Copy_pu32TotalPeriod){
+	*Copy_pu32TotalPeriod=HWICU_u16OffPeriod+HWICU_u16OnPeriod;
+}
+void TIMER1_voidGetPWMDutyCycle(uint8 *Copy_pu8DutyCycle){
+	*Copy_pu8DutyCycle=(uint8)((HWICU_u16OnPeriod*100UL)/(HWICU_u16OnPeriod+HWICU_u16OffPeriod));
+}
+void TIMER1_voidGetPWMOnPeriod(uint16 *Copy_pu16OnPeriod){
+	*Copy_pu16OnPeriod=HWICU_u16OnPeriod;
+}
+void TIMER1_voidGetPWMOffPeriod(uint16 *Copy_pu16OffPeriod){
+	*Copy_pu16OffPeriod=HWICU_u16OffPeriod;
+}
+
 
 
 
@@ -268,4 +305,40 @@ void __vector_8  (void)
 	else{
 
 	}
+}
+
+
+/* Interrupt handling Of the ICU */
+void __vector_6  (void)          __attribute__ ((signal,used));
+void __vector_6  (void)
+{
+	/* Read the timer1 Value */
+	uint16 Local_u16TimerValue;
+	TIMER1_voidReadICR1Value(&Local_u16TimerValue);
+	static uint8 Local_u8Flag=0;
+	/* We must save the previous value of the timer counter */
+	static uint16 Local_u16ldValue=0;
+
+	/* Here, we will measure the off period */
+	/* Here, we will change the mode of the interrupt to detect the
+	 * falling edge                                                 */
+	/* Set the flag to be 1*/
+	if(0==Local_u8Flag){
+		/* t(off) = New counter Value - Previous Counter Value */
+		HWICU_u16OffPeriod=Local_u16TimerValue-Local_u16ldValue;
+		/* Change the sense Control into Falling Edge */
+		CLEAR_BIT(TCCR1B,ICES1);
+		/* Change the flag to be 1 */
+		Local_u8Flag=1;
+	}
+	/* Here, */
+	else{
+		/* t(on) = New counter Value - Previous Counter Value */
+		HWICU_u16OnPeriod=Local_u16TimerValue-Local_u16ldValue;
+		/* Change the sense Control into rising Edge */
+		SET_BIT(TCCR1B,ICES1);
+		/* Change the flag to be 0 */
+		Local_u8Flag=0;
+	}
+	Local_u16ldValue=Local_u16TimerValue;
 }

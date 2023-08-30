@@ -17,18 +17,18 @@
 /* LCD 1 Pins Connections */
 #define LCD1_INDEX_NUMBER            0
 
-#define LCD1_RS_PIN           (LCD_ChannelType)16
-#define LCD1_RW_PIN           (LCD_ChannelType)17
-#define LCD1_E_PIN            (LCD_ChannelType)18
+#define LCD1_RS_PIN           (LCD_ChannelType)8
+#define LCD1_RW_PIN           (LCD_ChannelType)9
+#define LCD1_E_PIN            (LCD_ChannelType)10
 
-#define LCD1_DB_0             (LCD_ChannelType)8
-#define LCD1_DB_1             (LCD_ChannelType)9
-#define LCD1_DB_2             (LCD_ChannelType)10
-#define LCD1_DB_3             (LCD_ChannelType)11
-#define LCD1_DB_4             (LCD_ChannelType)12
-#define LCD1_DB_5             (LCD_ChannelType)13
-#define LCD1_DB_6             (LCD_ChannelType)14
-#define LCD1_DB_7             (LCD_ChannelType)15
+#define LCD1_DB_0             (LCD_ChannelType)0
+#define LCD1_DB_1             (LCD_ChannelType)1
+#define LCD1_DB_2             (LCD_ChannelType)2
+#define LCD1_DB_3             (LCD_ChannelType)3
+#define LCD1_DB_4             (LCD_ChannelType)4
+#define LCD1_DB_5             (LCD_ChannelType)5
+#define LCD1_DB_6             (LCD_ChannelType)6
+#define LCD1_DB_7             (LCD_ChannelType)7
 
 
 /* LCD1 Modes Type */
