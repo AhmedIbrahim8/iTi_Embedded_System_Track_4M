@@ -273,8 +273,8 @@ int main(){
 				/* Real time clock begin*/
 				case '9':
 					LCD_voidClrScr(LCD1_INDEX_NUMBER);
-					LCD_displayStringRowColumn(LCD1_INDEX_NUMBER,0,0,"7 ( Pause )");
-					LCD_displayStringRowColumn(LCD1_INDEX_NUMBER,1,0,"1 (newclock)");
+					LCD_displayStringRowColumn(LCD1_INDEX_NUMBER,0,0,"7:Pause 3:Resume");
+					LCD_displayStringRowColumn(LCD1_INDEX_NUMBER,1,0,"1 : New Clock");
 					global_seconds=seconds[1]*10+seconds[0];
 					global_minutes=minutes[1]*10+minutes[0];
 					global_hours=hours[1]*10+hours[0];
@@ -286,9 +286,6 @@ int main(){
 						/* Get the key from the user */
 						keypad_state=KPD_u8GetPressedKey(KEYPAD1_INDEX);
 						if(keypad_state=='7'){
-							LCD_voidClrScr(LCD1_INDEX_NUMBER);
-							LCD_displayStringRowColumn(LCD1_INDEX_NUMBER,0,0,"3  (  Resume   )");
-							LCD_displayStringRowColumn(LCD1_INDEX_NUMBER,1,0,"1  (  newclock )");
 							TIMER2_voidDisableCompareINT();
 							TIMER2_voidEnable(TIMER2_NO_CLOCK_SOURCE);
 							while(keypad_state !='3' && keypad_state!='1'){
@@ -296,11 +293,7 @@ int main(){
 								keypad_state=KPD_u8GetPressedKey(KEYPAD1_INDEX);
 								App_Display_Sev_Segment();
 							}
-							if(keypad_state=='3'){
-								LCD_voidClrScr(LCD1_INDEX_NUMBER);
-								LCD_displayStringRowColumn(LCD1_INDEX_NUMBER,0,0,"7 ( Pause )");
-								LCD_displayStringRowColumn(LCD1_INDEX_NUMBER,1,0,"1 (newclock)");
-							}
+
 							TIMER2_voidEnableCompareINT();
 							TIMER2_voidEnable(TIMER2_CLK_128);
 						}
