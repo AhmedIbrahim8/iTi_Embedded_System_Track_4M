@@ -1,0 +1,16 @@
+/*******************************************************************************************/
+/*  Module       :   GPIO                                                                  */
+/*  File Name    :   MGPIO_Private.h                                                       */
+/*  Description  :   Header File of the RCC Driver Private                                 */
+/*  Author       :   Ahmed Ibrahim                                                         */
+/*  Date         :   10/09/2023                                                            */
+/*******************************************************************************************/
+
+#ifndef MGPIO_PRIVATE_H_
+#define MGPIO_PRIVATE_H_
+
+
+
+
+
+#endif /* MGPIO_PRIVATE_H_ */

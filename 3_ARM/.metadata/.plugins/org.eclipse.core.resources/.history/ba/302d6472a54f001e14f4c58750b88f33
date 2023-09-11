@@ -1,0 +1,84 @@
+/*******************************************************************************************/
+/*  Module       :   GPIO                                                                  */
+/*  File Name    :   MGPIO_Private.h                                                       */
+/*  Description  :   Header File of the RCC Driver Private                                 */
+/*  Author       :   Ahmed Ibrahim                                                         */
+/*  Date         :   10/09/2023                                                            */
+/*******************************************************************************************/
+
+#ifndef MGPIO_PRIVATE_H_
+#define MGPIO_PRIVATE_H_
+/**************************************************************************/
+/* GPIOA Module Base Address From Reference Manual page 38                  */
+/* GPIOA is connected to AHB1 Bus                                           */
+/* Start from    address                 0x4002 0000                       */
+/*                                       -----------                      */
+/* End   at      address                 0x4002 03FF                      */
+
+/* GPIOB is connected to AHB1 Bus                                           */
+/* Start from    address                 0x4002 0400                       */
+/*                                       -----------                      */
+/* End   at      address                 0x4002 07FF                      */
+
+/* GPIOC is connected to AHB1 Bus                                           */
+/* Start from    address                 0x4002 0800                       */
+/*                                       -----------                      */
+/* End   at      address                 0x4002 0BFF                      */
+
+/**************************************************************************/
+#define  GPIOA_BASE_ADDRESS       (0x40020000)
+
+#define  GPIOB_BASE_ADDRESS       (0x40020400)
+
+#define  GPIOC_BASE_ADDRESS       (0x40020800)
+
+
+/**************************************************************************/
+/* Typedef for all GPIO Module Register                                    */
+/* Reference Manual Page 164 8.4.11 GPIO register map                      */
+/**************************************************************************/
+typedef struct{
+	u32 GPIOA_MODER;
+	u32 GPIOA_OTYPER;
+	u32 GPIOA_OSPEEDR;
+	u32 GPIOA_PUPDR;
+	u32 GPIOA_IDR;
+	u32 GPIOA_ODR;
+	u32 GPIOA_BSRR;
+	u32 GPIOA_LCKR;
+	u32 GPIOA_AFRL;
+	u32 GPIOA_AFRH;
+}GPIOA_t;
+
+typedef struct{
+	u32 GPIOB_MODER;
+	u32 GPIOB_OTYPER;
+	u32 GPIOB_OSPEEDR;
+	u32 GPIOB_PUPDR;
+	u32 GPIOB_IDR;
+	u32 GPIOB_ODR;
+	u32 GPIOB_BSRR;
+	u32 GPIOB_LCKR;
+	u32 GPIOB_AFRL;
+	u32 GPIOB_AFRH;
+}GPIOB_t;
+
+
+typedef struct{
+	u32 GPIOC_MODER;
+	u32 GPIOC_OTYPER;
+	u32 GPIOC_OSPEEDR;
+	u32 GPIOC_PUPDR;
+	u32 GPIOC_IDR;
+	u32 GPIOC_ODR;
+	u32 GPIOC_BSRR;
+	u32 GPIOC_LCKR;
+	u32 GPIOC_AFRL;
+	u32 GPIOC_AFRH;
+}GPIOC_t;
+
+/* Macro to point to the base address of the GPIO Module */
+#define       GPIOA          ((volatile GPIOA_t*)GPIOA_BASE_ADDRESS)
+
+
+#endif /* MGPIO_PRIVATE_H_ */

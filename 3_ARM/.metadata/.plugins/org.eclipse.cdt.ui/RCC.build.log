@@ -1,0 +1,11 @@
+15:43:48 **** Incremental Build of configuration Debug for project RCC ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "RCC.elf"
+   text	   data	    bss	    dec	    hex	filename
+   8396	    148	    420	   8964	   2304	RCC.elf
+Finished building: RCC.siz
+ 
+
+15:43:48 Build Finished. 0 errors, 0 warnings. (took 316ms)
+

@@ -1,0 +1,55 @@
+/*******************************************************************************************/
+/*  Module       :   GPIO                                                                   */
+/*  File Name    :   MGPIO_Program.c                                                        */
+/*  Description  :   Source File of the GPIO Driver                                         */
+/*  Author       :   Ahmed Ibrahim                                                         */
+/*  Date         :   10/09/2023                                                            */
+/*******************************************************************************************/
+
+
+
+/*******************************************************************************************/
+/*********************************** Included  Files ***************************************/
+/*******************************************************************************************/
+/* Standard Types File */
+#include "../include\STD_Types.h"
+/* Bit Math File */
+#include "../include\BIT_MATH.h"
+
+/* RCC Specified Header Files */
+#include "../include\MGPIO_Interface.h"
+#include "../include\MGPIO_Config.h"
+#include "../include\MGPIO_Private.h"
+
+/********************************************************************************************/
+/************************************** APIs Definition *************************************/
+/********************************************************************************************/
+
+void MGPIO_SetMode(u8 Copy_u8PortIndex,u8 Copy_u8PinIndex,u8 Copy_u8PinMode)
+{
+
+}
+
+void MGPIO_SetOutputPinMode(u8 Copy_u8PortIndex,u8 Copy_u8PinIndex,u8 Copy_u8OutputType,u8 Copy_u8Speed)
+{
+
+}
+
+void MGPIO_SetInputPinMode(u8 Copy_u8PortIndex,u8 Copy_u8PinIndex,u8 Copy_u8InputType)
+{
+
+}
+
+void MGPIO_GetPinValue(u8 Copy_u8PortIndex,u8 Copy_u8PinIndex,u8 *Copy_pu8Data)
+{
+
+}
+
+void MGPIO_SetPinValue(u8 Copy_u8PortIndex,u8 Copy_u8PinIndex,u8 Copy_u8)
+{
+
+}
+void MGPIO_SetResetValue(u8 Copy_u8PortIndex,u8 Copy_u8PinIndex,u8 Copy_u8SetOrReset)
+{
+
+}
