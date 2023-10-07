@@ -1,0 +1,26 @@
+19:23:27 **** Incremental Build of configuration Debug for project HTFT ****
+make all 
+Building file: ../src/MSPI_Program.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F401xC -DUSE_HAL_DRIVER -DHSE_VALUE=25000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4-hal" -std=gnu11 -MMD -MP -MF"src/MSPI_Program.d" -MT"src/MSPI_Program.o" -c -o "src/MSPI_Program.o" "../src/MSPI_Program.c"
+Finished building: ../src/MSPI_Program.c
+ 
+Building target: HTFT.elf
+Invoking: GNU Arm Cross C++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"HTFT.map" --specs=nano.specs -o "HTFT.elf" ./system/src/stm32f4-hal/stm32f4xx_hal.o ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o ./system/src/stm32f4-hal/stm32f4xx_hal_flash_ex.o ./system/src/stm32f4-hal/stm32f4xx_hal_flash_ramfunc.o ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o  ./system/src/newlib/assert.o ./system/src/newlib/cxx.o ./system/src/newlib/exit.o ./system/src/newlib/sbrk.o ./system/src/newlib/startup.o ./system/src/newlib/syscalls.o  ./system/src/diag/trace-impl.o ./system/src/diag/trace.o  ./system/src/cortexm/exception-handlers.o ./system/src/cortexm/initialize-hardware.o ./system/src/cortexm/reset-hardware.o  ./system/src/cmsis/system_stm32f4xx.o ./system/src/cmsis/vectors_stm32f401xc.o  ./src/HTFT_Program.o ./src/MGPIO_Program.o ./src/MRCC_Program.o ./src/MSPI_Program.o ./src/MSYSTICK_Program.o ./src/initialize-hardware.o ./src/main.o ./src/stm32f4xx_hal_msp.o ./src/write.o   
+e:/iti/5_arm/winarm/armgcc/12.3.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: HTFT.elf has a LOAD segment with RWX permissions
+Finished building target: HTFT.elf
+ 
+Invoking: GNU Arm Cross Create Flash Image
+arm-none-eabi-objcopy -O ihex "HTFT.elf"  "HTFT.hex"
+Finished building: HTFT.hex
+ 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "HTFT.elf"
+   text	   data	    bss	    dec	    hex	filename
+  51020	    148	    424	  51592	   c988	HTFT.elf
+Finished building: HTFT.siz
+ 
+
+19:23:28 Build Finished. 0 errors, 1 warnings. (took 1s.42ms)
+

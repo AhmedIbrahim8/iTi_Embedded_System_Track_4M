@@ -1,0 +1,11 @@
+19:29:23 **** Build of configuration Debug for project 02_Blink_Led ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "02_Blink_Led.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9036	    148	    420	   9604	   2584	02_Blink_Led.elf
+Finished building: 02_Blink_Led.siz
+ 
+
+19:29:24 Build Finished. 0 errors, 0 warnings. (took 1s.378ms)
+

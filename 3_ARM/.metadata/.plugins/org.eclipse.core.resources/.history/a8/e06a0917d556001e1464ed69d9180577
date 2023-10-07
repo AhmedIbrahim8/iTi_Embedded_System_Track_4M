@@ -1,0 +1,71 @@
+#include "..\include\STD_Types.h"
+#include "..\include\BIT_MATH.h"
+
+
+#include "..\include\MUSART_Interface.h"
+#include "..\include\MUSART_Private.h"
+#include "..\include\MUSART_Config.h"
+
+
+
+
+
+static void (*global_ptr) (void)=NULL_PTR;
+
+
+
+
+void MUSART_voidInit(void)
+{
+	/* Baud Rate Register   */
+	/* 0x68 -----> Mantissa */
+	/* 0x03 -----> Fraction */
+	USART1->BRR = 0x683;
+	/* SAMPLE 16            */
+	USART1->CR1.OVER8=0;
+	/* Word length 8        */
+	USART1->CR1.M=0;
+	/* Parity Disable       */
+	USART1->CR1.PCE=0;
+	/* One stop bits */
+	USART1->CR2 &=~(1<<12);
+	USART1->CR2 &=~(1<<13);
+	/* Enable  transmit and receive */
+	USART1->CR1.TE=1;
+	USART1->CR1.RE=1;
+	/* Receive interrupt enable     */
+	USART1->CR1.RXNEIE=1;
+}
+
+
+
+void MUSART_voidTransmit(u8* Copy_u8Data,u8 Copy_u8Length)
+{
+	u8 Copy_u8Counter=0;
+	for(Copy_u8Counter=0;Copy_u8Counter<Copy_u8Length;Copy_u8Length++)
+	{
+		USART1->DR = Copy_u8Data[Copy_u8Counter];
+		while(GET_BIT(USART1->SR,7)==0);
+	}
+}
+
+u8 MUSART_u8Receive()
+{
+	while(GET_BIT(USART1->SR,5)==0);
+	return (u8)(USART1->DR);
+}
+
+void MUSART_voidEnable()
+{
+	SET_BIT();
+}
+
+void MUSART_voidDisable()
+{
+	CLEAR_BIT();
+}
+
+void MUSART_voidSetCallBack(void (*ptr) (void))
+{
+
+}

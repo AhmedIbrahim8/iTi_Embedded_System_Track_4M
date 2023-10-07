@@ -1,0 +1,11 @@
+19:29:27 **** Build of configuration Debug for project 04_Increment_Leds_With_One_PB ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "04_Increment_Leds_With_One_PB.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9420	    148	    420	   9988	   2704	04_Increment_Leds_With_One_PB.elf
+Finished building: 04_Increment_Leds_With_One_PB.siz
+ 
+
+19:29:28 Build Finished. 0 errors, 0 warnings. (took 1s.127ms)
+

@@ -2722,7 +2722,7 @@ Discarded input sections
  .data          0x00000000        0x0 ./src/MRCC_Program.o
  .bss           0x00000000        0x0 ./src/MRCC_Program.o
  .text.MRCC_Init
-                0x00000000       0x24 ./src/MRCC_Program.o
+                0x00000000       0x30 ./src/MRCC_Program.o
  .text.MRCC_Enable_Peripheral
                 0x00000000       0x48 ./src/MRCC_Program.o
  .text.MRCC_Disable_Peripheral
@@ -2738,11 +2738,11 @@ Discarded input sections
  .debug_macro   0x00000000       0x3f ./src/MRCC_Program.o
  .debug_macro   0x00000000      0xaba ./src/MRCC_Program.o
  .debug_macro   0x00000000       0x3a ./src/MRCC_Program.o
- .debug_macro   0x00000000       0xfa ./src/MRCC_Program.o
- .debug_macro   0x00000000       0x10 ./src/MRCC_Program.o
- .debug_macro   0x00000000       0xb8 ./src/MRCC_Program.o
- .debug_line    0x00000000      0x139 ./src/MRCC_Program.o
- .debug_str     0x00000000     0x36d7 ./src/MRCC_Program.o
+ .debug_macro   0x00000000      0x17a ./src/MRCC_Program.o
+ .debug_macro   0x00000000       0x40 ./src/MRCC_Program.o
+ .debug_macro   0x00000000      0x219 ./src/MRCC_Program.o
+ .debug_line    0x00000000      0x148 ./src/MRCC_Program.o
+ .debug_str     0x00000000     0x3bae ./src/MRCC_Program.o
  .comment       0x00000000       0x3a ./src/MRCC_Program.o
  .debug_frame   0x00000000       0x40 ./src/MRCC_Program.o
  .ARM.attributes

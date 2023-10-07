@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;IR/src/HIR_Private&apos; to &apos;HIR_Private.h&apos;" description="Rename resource &apos;HIR_Private&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/HIR_Private" name="HIR_Private.h" stamp="1695028799550" updateReferences="true"/>
+</session>

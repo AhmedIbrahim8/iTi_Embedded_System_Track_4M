@@ -2714,18 +2714,45 @@ Discarded input sections
  .debug_macro   0x00000000      0xaba ./system/src/cmsis/vectors_stm32f401xc.o
  .debug_macro   0x00000000      0x34e ./system/src/cmsis/vectors_stm32f401xc.o
  .group         0x00000000        0xc ./src/MGPIO_Program.o
+ .group         0x00000000        0xc ./src/MGPIO_Program.o
+ .group         0x00000000        0xc ./src/MGPIO_Program.o
+ .group         0x00000000        0xc ./src/MGPIO_Program.o
  .text          0x00000000        0x0 ./src/MGPIO_Program.o
  .data          0x00000000        0x0 ./src/MGPIO_Program.o
  .bss           0x00000000        0x0 ./src/MGPIO_Program.o
- .debug_info    0x00000000       0x22 ./src/MGPIO_Program.o
- .debug_abbrev  0x00000000       0x12 ./src/MGPIO_Program.o
+ .text.MGPIO_SetMode
+                0x00000000       0x80 ./src/MGPIO_Program.o
+ .text.MGPIO_SetOutputPinMode
+                0x00000000       0xbc ./src/MGPIO_Program.o
+ .text.MGPIO_SetInputPinMode
+                0x00000000       0x80 ./src/MGPIO_Program.o
+ .text.MGPIO_GetPinValue
+                0x00000000       0x64 ./src/MGPIO_Program.o
+ .text.MGPIO_SetPinValue
+                0x00000000       0x74 ./src/MGPIO_Program.o
+ .text.MGPIO_SetPortValue
+                0x00000000       0x44 ./src/MGPIO_Program.o
+ .text.MGPIO_SetResetValue
+                0x00000000       0xb8 ./src/MGPIO_Program.o
+ .text.MGPIO_SetAlternativeFuncPin
+                0x00000000      0x104 ./src/MGPIO_Program.o
+ .debug_info    0x00000000      0x3e0 ./src/MGPIO_Program.o
+ .debug_abbrev  0x00000000      0x13c ./src/MGPIO_Program.o
+ .debug_loclists
+                0x00000000      0x45c ./src/MGPIO_Program.o
  .debug_aranges
-                0x00000000       0x18 ./src/MGPIO_Program.o
- .debug_macro   0x00000000       0x11 ./src/MGPIO_Program.o
+                0x00000000       0x58 ./src/MGPIO_Program.o
+ .debug_rnglists
+                0x00000000       0x42 ./src/MGPIO_Program.o
+ .debug_macro   0x00000000       0x40 ./src/MGPIO_Program.o
  .debug_macro   0x00000000      0xaba ./src/MGPIO_Program.o
- .debug_line    0x00000000       0x37 ./src/MGPIO_Program.o
- .debug_str     0x00000000     0x2dfa ./src/MGPIO_Program.o
+ .debug_macro   0x00000000       0x3a ./src/MGPIO_Program.o
+ .debug_macro   0x00000000      0x112 ./src/MGPIO_Program.o
+ .debug_macro   0x00000000       0x2e ./src/MGPIO_Program.o
+ .debug_line    0x00000000      0x69f ./src/MGPIO_Program.o
+ .debug_str     0x00000000     0x369a ./src/MGPIO_Program.o
  .comment       0x00000000       0x3a ./src/MGPIO_Program.o
+ .debug_frame   0x00000000       0xcc ./src/MGPIO_Program.o
  .ARM.attributes
                 0x00000000       0x2e ./src/MGPIO_Program.o
  .group         0x00000000        0xc ./src/initialize-hardware.o

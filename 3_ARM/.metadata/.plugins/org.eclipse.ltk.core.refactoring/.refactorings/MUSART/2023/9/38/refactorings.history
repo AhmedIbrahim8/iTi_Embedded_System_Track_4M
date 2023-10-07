@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MUSART/include/MUSART.h&apos; to &apos;MUSART_Private.h&apos;" description="Rename resource &apos;MUSART.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="include/MUSART.h" name="MUSART_Private.h" stamp="1695115854930" updateReferences="true"/>
+</session>

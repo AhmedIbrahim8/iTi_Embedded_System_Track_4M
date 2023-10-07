@@ -1,0 +1,53 @@
+/*
+ * MFPEC_Private.h
+ *
+ *  Created on: Sep 30, 2023
+ *      Author: Ahmed
+ */
+
+#ifndef MFPEC_PRIVATE_H_
+#define MFPEC_PRIVATE_H_
+
+
+
+typedef struct{
+	u32 FLASH_ACR;
+	u32 FLASH_KEYR;
+	u32 FLASH_OPTKEYR;
+	u32 FLASH_SR;
+	u32 FLASH_CR;
+	u32 FLASH_OPTCR;
+}MFPEC_t;
+
+
+
+#define   FPEC    ((volatile MFPEC_t*))
+#define   DCRST              12
+#define   ICRST              11
+#define   DCEN               10
+#define   ICEN               9
+#define   PRFTEN             8
+#define   LATENCY3           3
+#define   LATENCY2           2
+#define   LATENCY1           1
+#define   LATENCY0           0
+
+
+#define   BSY                16
+#define   RDERR              8
+#define   PGSERR             7
+#define   PGPERR             6
+#define   PGAERR             5
+#define   WRPERR             4
+#define   OPERR              1
+#define   EOP                0
+
+
+
+#define   MFPEC_KEY1                  0x45670123
+#define   MFPEC_KEY2                  0xCDEF89AB
+
+
+
+
+#endif /* MFPEC_PRIVATE_H_ */

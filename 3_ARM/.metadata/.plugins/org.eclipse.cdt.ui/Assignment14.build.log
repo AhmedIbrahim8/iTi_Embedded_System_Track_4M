@@ -1,0 +1,11 @@
+17:50:57 **** Incremental Build of configuration Debug for project Assignment14 ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "Assignment14.elf"
+   text	   data	    bss	    dec	    hex	filename
+  10204	    220	    420	  10844	   2a5c	Assignment14.elf
+Finished building: Assignment14.siz
+ 
+
+17:50:57 Build Finished. 0 errors, 0 warnings. (took 369ms)
+

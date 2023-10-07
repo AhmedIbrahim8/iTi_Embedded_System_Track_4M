@@ -1,0 +1,11 @@
+16:48:56 **** Incremental Build of configuration Debug for project HIR ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "HIR.elf"
+   text	   data	    bss	    dec	    hex	filename
+  10492	    148	    696	  11336	   2c48	HIR.elf
+Finished building: HIR.siz
+ 
+
+16:48:57 Build Finished. 0 errors, 0 warnings. (took 522ms)
+

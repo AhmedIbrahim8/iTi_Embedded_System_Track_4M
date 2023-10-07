@@ -1,0 +1,148 @@
+19:23:29 **** Build of configuration Debug for project MSPI ****
+make all 
+Building file: ../src/MGPIO_Program.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F401xC -DUSE_HAL_DRIVER -DHSE_VALUE=25000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4-hal" -std=gnu11 -MMD -MP -MF"src/MGPIO_Program.d" -MT"src/MGPIO_Program.o" -c -o "src/MGPIO_Program.o" "../src/MGPIO_Program.c"
+../src/MGPIO_Program.c:14:1: warning: "/*" within comment [-Wcomment]
+   14 | /*  2-  GPIOx_OTYPER
+      |  
+../src/MGPIO_Program.c:17:1: warning: "/*" within comment [-Wcomment]
+   17 | /*  5-  GPIOx_IDR
+      |  
+../src/MGPIO_Program.c:20:1: warning: "/*" within comment [-Wcomment]
+   20 | /*  8-  GPIOx_LCKR, and two 32-bit alternate function selection register:
+      |  
+../src/MGPIO_Program.c:22:1: warning: "/*" within comment [-Wcomment]
+   22 | /*  10- GPIOx_AFRL                                                                       */
+      |  
+../src/MGPIO_Program.c:28:1: warning: "/*" within comment [-Wcomment]
+   28 | /* • Output states: push-pull or open drain + pull-up/down
+      |  
+../src/MGPIO_Program.c:29:1: warning: "/*" within comment [-Wcomment]
+   29 | /* • Output data from output data register (GPIOx_ODR) or peripheral (alternate function
+      |  
+../src/MGPIO_Program.c:30:1: warning: "/*" within comment [-Wcomment]
+   30 | /*   output)
+      |  
+../src/MGPIO_Program.c:31:1: warning: "/*" within comment [-Wcomment]
+   31 | /* • Speed selection for each I/O
+      |  
+../src/MGPIO_Program.c:32:1: warning: "/*" within comment [-Wcomment]
+   32 | /* • Input states: floating, pull-up/down, analog
+      |  
+../src/MGPIO_Program.c:33:1: warning: "/*" within comment [-Wcomment]
+   33 | /* • Input data to input data register (GPIOx_IDR) or peripheral (alternate function input)
+      |  
+../src/MGPIO_Program.c:34:1: warning: "/*" within comment [-Wcomment]
+   34 | /* • Bit set and reset register (GPIOx_BSRR) for bitwise write access to GPIOx_ODR
+      |  
+../src/MGPIO_Program.c:35:1: warning: "/*" within comment [-Wcomment]
+   35 | /* • Locking mechanism (GPIOx_LCKR) provided to freeze the I/O configuration
+      |  
+../src/MGPIO_Program.c:36:1: warning: "/*" within comment [-Wcomment]
+   36 | /* • Analog function
+      |  
+../src/MGPIO_Program.c:37:1: warning: "/*" within comment [-Wcomment]
+   37 | /* • Alternate function input/output selection registers (at most 16 AFs per I/O)
+      |  
+../src/MGPIO_Program.c:38:1: warning: "/*" within comment [-Wcomment]
+   38 | /* • Fast toggle capable of changing every two clock cycles
+      |  
+../src/MGPIO_Program.c:39:1: warning: "/*" within comment [-Wcomment]
+   39 | /* • Highly flexible pin multiplexing allows the use of I/O pins as GPIOs or as one of several
+      |  
+../src/MGPIO_Program.c:40:1: warning: "/*" within comment [-Wcomment]
+   40 | /*   peripheral functions                                                                       */
+      |  
+../src/MGPIO_Program.c:47:1: warning: "/*" within comment [-Wcomment]
+   47 | /* port bit of the general-purpose I/O (GPIO) ports can be individually configured by software in
+      |  
+../src/MGPIO_Program.c:48:1: warning: "/*" within comment [-Wcomment]
+   48 | /* several modes:
+      |  
+../src/MGPIO_Program.c:49:1: warning: "/*" within comment [-Wcomment]
+   49 | /*  • Input floating
+      |  
+../src/MGPIO_Program.c:50:1: warning: "/*" within comment [-Wcomment]
+   50 | /*  • Input pull-up
+      |  
+../src/MGPIO_Program.c:51:1: warning: "/*" within comment [-Wcomment]
+   51 | /*  • Input-pull-down
+      |  
+../src/MGPIO_Program.c:52:1: warning: "/*" within comment [-Wcomment]
+   52 | /*  • Analog
+      |  
+../src/MGPIO_Program.c:53:1: warning: "/*" within comment [-Wcomment]
+   53 | /*  • Output open-drain with pull-up or pull-down capability
+      |  
+../src/MGPIO_Program.c:54:1: warning: "/*" within comment [-Wcomment]
+   54 | /*  • Output push-pull with pull-up or pull-down capability
+      |  
+../src/MGPIO_Program.c:55:1: warning: "/*" within comment [-Wcomment]
+   55 | /*  • Alternate function push-pull with pull-up or pull-down capability
+      |  
+../src/MGPIO_Program.c:56:1: warning: "/*" within comment [-Wcomment]
+   56 | /*  • Alternate function open-drain with pull-up or pull-down capability
+      |  
+../src/MGPIO_Program.c:57:1: warning: "/*" within comment [-Wcomment]
+   57 | /* Each I/O port bit is freely programmable, however the I/O port registers have to be
+      |  
+../src/MGPIO_Program.c:58:1: warning: "/*" within comment [-Wcomment]
+   58 | /* accessed as 32-bit words, half-words or bytes. The purpose of the GPIOx_BSRR register is
+      |  
+../src/MGPIO_Program.c:59:1: warning: "/*" within comment [-Wcomment]
+   59 | /* to allow atomic read/modify accesses to any of the GPIO registers. In this way, there is no
+      |  
+../src/MGPIO_Program.c:60:1: warning: "/*" within comment [-Wcomment]
+   60 | /* risk of an IRQ occurring between the read and the modify access.                              */
+      |  
+Finished building: ../src/MGPIO_Program.c
+ 
+Building file: ../src/MSPI_Program.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F401xC -DUSE_HAL_DRIVER -DHSE_VALUE=25000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4-hal" -std=gnu11 -MMD -MP -MF"src/MSPI_Program.d" -MT"src/MSPI_Program.o" -c -o "src/MSPI_Program.o" "../src/MSPI_Program.c"
+Finished building: ../src/MSPI_Program.c
+ 
+Building file: ../src/initialize-hardware.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F401xC -DUSE_HAL_DRIVER -DHSE_VALUE=25000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4-hal" -std=gnu11 -MMD -MP -MF"src/initialize-hardware.d" -MT"src/initialize-hardware.o" -c -o "src/initialize-hardware.o" "../src/initialize-hardware.c"
+../src/initialize-hardware.c: In function 'SystemClock_Config':
+../src/initialize-hardware.c:128:2: warning: #warning "Please check if the SystemClock_Config() settings match your board!" [-Wcpp]
+  128 | #warning "Please check if the SystemClock_Config() settings match your board!"
+      |  ^~~~~~~
+Finished building: ../src/initialize-hardware.c
+ 
+Building file: ../src/main.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F401xC -DUSE_HAL_DRIVER -DHSE_VALUE=25000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4-hal" -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building file: ../src/stm32f4xx_hal_msp.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F401xC -DUSE_HAL_DRIVER -DHSE_VALUE=25000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4-hal" -std=gnu11 -Wno-padded -Wno-missing-prototypes -Wno-missing-declarations -MMD -MP -MF"src/stm32f4xx_hal_msp.d" -MT"src/stm32f4xx_hal_msp.o" -c -o "src/stm32f4xx_hal_msp.o" "../src/stm32f4xx_hal_msp.c"
+Finished building: ../src/stm32f4xx_hal_msp.c
+ 
+Building file: ../src/write.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F401xC -DUSE_HAL_DRIVER -DHSE_VALUE=25000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4-hal" -std=gnu11 -MMD -MP -MF"src/write.d" -MT"src/write.o" -c -o "src/write.o" "../src/write.c"
+Finished building: ../src/write.c
+ 
+Building target: MSPI.elf
+Invoking: GNU Arm Cross C++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"MSPI.map" --specs=nano.specs -o "MSPI.elf" ./system/src/stm32f4-hal/stm32f4xx_hal.o ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o ./system/src/stm32f4-hal/stm32f4xx_hal_flash_ex.o ./system/src/stm32f4-hal/stm32f4xx_hal_flash_ramfunc.o ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o  ./system/src/newlib/assert.o ./system/src/newlib/cxx.o ./system/src/newlib/exit.o ./system/src/newlib/sbrk.o ./system/src/newlib/startup.o ./system/src/newlib/syscalls.o  ./system/src/diag/trace-impl.o ./system/src/diag/trace.o  ./system/src/cortexm/exception-handlers.o ./system/src/cortexm/initialize-hardware.o ./system/src/cortexm/reset-hardware.o  ./system/src/cmsis/system_stm32f4xx.o ./system/src/cmsis/vectors_stm32f401xc.o  ./src/MGPIO_Program.o ./src/MSPI_Program.o ./src/initialize-hardware.o ./src/main.o ./src/stm32f4xx_hal_msp.o ./src/write.o   
+e:/iti/5_arm/winarm/armgcc/12.3.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: MSPI.elf has a LOAD segment with RWX permissions
+Finished building target: MSPI.elf
+ 
+Invoking: GNU Arm Cross Create Flash Image
+arm-none-eabi-objcopy -O ihex "MSPI.elf"  "MSPI.hex"
+Finished building: MSPI.hex
+ 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "MSPI.elf"
+   text	   data	    bss	    dec	    hex	filename
+   8364	    148	    424	   8936	   22e8	MSPI.elf
+Finished building: MSPI.siz
+ 
+
+19:23:33 Build Finished. 0 errors, 33 warnings. (took 4s.545ms)
+

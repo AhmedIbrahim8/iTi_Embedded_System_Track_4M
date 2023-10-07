@@ -1,0 +1,11 @@
+19:29:22 **** Incremental Build of configuration Debug for project 01_LED_ON ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "01_LED_ON.elf"
+   text	   data	    bss	    dec	    hex	filename
+   8940	    148	    420	   9508	   2524	01_LED_ON.elf
+Finished building: 01_LED_ON.siz
+ 
+
+19:29:22 Build Finished. 0 errors, 0 warnings. (took 366ms)
+

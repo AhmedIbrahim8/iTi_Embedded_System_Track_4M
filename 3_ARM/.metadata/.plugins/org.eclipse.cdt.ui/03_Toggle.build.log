@@ -1,0 +1,11 @@
+19:29:24 **** Incremental Build of configuration Debug for project 03_Toggle ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "03_Toggle.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9308	    148	    420	   9876	   2694	03_Toggle.elf
+Finished building: 03_Toggle.siz
+ 
+
+19:29:26 Build Finished. 0 errors, 0 warnings. (took 1s.435ms)
+

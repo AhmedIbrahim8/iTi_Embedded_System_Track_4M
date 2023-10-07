@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;BootLoader/include/HexParser_int.h&apos; to &apos;HexParser_Interface.h&apos;" description="Rename resource &apos;HexParser_int.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="include/HexParser_int.h" name="HexParser_Interface.h" stamp="1696151728323" updateReferences="true"/>
+</session>

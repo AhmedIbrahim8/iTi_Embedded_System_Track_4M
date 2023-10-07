@@ -1,0 +1,11 @@
+23:17:59 **** Build of configuration Debug for project Ass_IR ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "Ass_IR.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9628	    148	    700	  10476	   28ec	Ass_IR.elf
+Finished building: Ass_IR.siz
+ 
+
+23:17:59 Build Finished. 0 errors, 0 warnings. (took 426ms)
+

@@ -1,0 +1,11 @@
+21:05:42 **** Incremental Build of configuration Debug for project MUSART ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "MUSART.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9116	    148	    424	   9688	   25d8	MUSART.elf
+Finished building: MUSART.siz
+ 
+
+21:05:42 Build Finished. 0 errors, 0 warnings. (took 373ms)
+

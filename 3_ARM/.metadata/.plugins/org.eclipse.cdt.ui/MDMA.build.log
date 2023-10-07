@@ -1,0 +1,36 @@
+01:31:18 **** Build of configuration Debug for project MDMA ****
+make all 
+Building file: ../src/MDMA_Program.c
+Invoking: GNU Arm Cross C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F401xC -DUSE_HAL_DRIVER -DHSE_VALUE=25000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4-hal" -std=gnu11 -MMD -MP -MF"src/MDMA_Program.d" -MT"src/MDMA_Program.o" -c -o "src/MDMA_Program.o" "../src/MDMA_Program.c"
+../src/MDMA_Program.c: In function 'DMA2_SetStreamSconfiguration':
+../src/MDMA_Program.c:80:40: warning: assignment to 'u32' {aka 'long unsigned int'} from 'u32 *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   80 |         DMA2->s[Copy_u8StreamID].SPAR  = Copy_pu32SourceAddress;
+      |                                        ^
+../src/MDMA_Program.c:81:40: warning: assignment to 'u32' {aka 'long unsigned int'} from 'u32 *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   81 |         DMA2->s[Copy_u8StreamID].SM0AR = Copy_pu32DestinationAddress;
+      |                                        ^
+../src/MDMA_Program.c:64:66: warning: unused parameter 'Copy_u8ElementSize' [-Wunused-parameter]
+   64 |                                                               u8 Copy_u8ElementSize,
+      |                                                               ~~~^~~~~~~~~~~~~~~~~~
+Finished building: ../src/MDMA_Program.c
+ 
+Building target: MDMA.elf
+Invoking: GNU Arm Cross C++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"MDMA.map" --specs=nano.specs -o "MDMA.elf" ./system/src/stm32f4-hal/stm32f4xx_hal.o ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o ./system/src/stm32f4-hal/stm32f4xx_hal_flash_ex.o ./system/src/stm32f4-hal/stm32f4xx_hal_flash_ramfunc.o ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o  ./system/src/newlib/assert.o ./system/src/newlib/cxx.o ./system/src/newlib/exit.o ./system/src/newlib/sbrk.o ./system/src/newlib/startup.o ./system/src/newlib/syscalls.o  ./system/src/diag/trace-impl.o ./system/src/diag/trace.o  ./system/src/cortexm/exception-handlers.o ./system/src/cortexm/initialize-hardware.o ./system/src/cortexm/reset-hardware.o  ./system/src/cmsis/system_stm32f4xx.o ./system/src/cmsis/vectors_stm32f401xc.o  ./src/MDMA_Program.o ./src/initialize-hardware.o ./src/main.o ./src/stm32f4xx_hal_msp.o ./src/write.o   
+e:/iti/5_arm/winarm/armgcc/12.3.1-1.1.1/.content/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: MDMA.elf has a LOAD segment with RWX permissions
+Finished building target: MDMA.elf
+ 
+Invoking: GNU Arm Cross Create Flash Image
+arm-none-eabi-objcopy -O ihex "MDMA.elf"  "MDMA.hex"
+Finished building: MDMA.hex
+ 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "MDMA.elf"
+   text	   data	    bss	    dec	    hex	filename
+   8476	    148	    452	   9076	   2374	MDMA.elf
+Finished building: MDMA.siz
+ 
+
+01:31:19 Build Finished. 0 errors, 4 warnings. (took 1s.580ms)
+

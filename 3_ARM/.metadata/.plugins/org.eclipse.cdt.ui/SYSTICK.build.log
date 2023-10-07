@@ -1,0 +1,11 @@
+14:57:24 **** Build of configuration Debug for project SYSTICK ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "SYSTICK.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9132	    148	    420	   9700	   25e4	SYSTICK.elf
+Finished building: SYSTICK.siz
+ 
+
+14:57:24 Build Finished. 0 errors, 0 warnings. (took 425ms)
+

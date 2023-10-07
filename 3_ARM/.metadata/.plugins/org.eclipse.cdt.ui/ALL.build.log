@@ -1,0 +1,11 @@
+19:08:39 **** Incremental Build of configuration Debug for project ALL ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "ALL.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9820	    148	    528	  10496	   2900	ALL.elf
+Finished building: ALL.siz
+ 
+
+19:08:40 Build Finished. 0 errors, 0 warnings. (took 429ms)
+

@@ -1,0 +1,176 @@
+#include "../include/STD_Types.h"
+#include "../include/BIT_MATH.h"
+
+#include "../include/MEXTI_Interface.h"
+#include "../include/MGPIO_Interface.h"
+#include "../include/MNVIC_Interface.h"
+#include "../include/MRCC_Interface.h"
+#include "../include/MSYSTICK_Interface.h"
+
+
+
+void SWITCH_CPU_AccessLevel(CPU_AccessLevel level)
+{
+	switch(level)
+	{
+	case PRIVILEGED:
+		__asm(" mrs r3,CONTROL    \n\t"
+			  " lsr r3, r3, #0x01 \n\t"
+			  " lsl r3, r3, #0x01 \n\t"
+			  " msr CONTROL, r3 ");
+
+		break;
+	case UNPRIVILEGED:
+		__asm(" mrs r3, CONTROL   \n\t"
+			  " orr r3, r3, #0x01 \n\t"
+			  " msr CONTROL, r3 ");
+		break;
+	}
+}
+
+
+
+
+void func1(void);
+
+void func2(void);
+
+
+
+int main(){
+	void (*ptr)()=func1;
+	MRCC_Init();
+	MRCC_Enable_Peripheral(RCC_AHB1,RCC_AHB1_GPIOA);
+	MRCC_Enable_Peripheral(RCC_AHB1,RCC_AHB1_GPIOB);
+	MRCC_Enable_Peripheral(RCC_APB2,RCC_APB2_SYSCFG);
+
+	SYSTICK_voidInit();
+
+	MGPIO_SetMode(PORTA,PIN0,GENRAL_PURPOSE_OUTPUT_MODE);
+	MGPIO_SetOutputPinMode(PORTA,PIN0,OUTPUT_PUSH_PULL,OUTPUT_LOW_SPEED_TYPE);
+	MGPIO_SetMode(PORTA,PIN1,GENRAL_PURPOSE_OUTPUT_MODE);
+	MGPIO_SetOutputPinMode(PORTA,PIN1,OUTPUT_PUSH_PULL,OUTPUT_LOW_SPEED_TYPE);
+	MGPIO_SetMode(PORTA,PIN2,GENRAL_PURPOSE_OUTPUT_MODE);
+	MGPIO_SetOutputPinMode(PORTA,PIN2,OUTPUT_PUSH_PULL,OUTPUT_LOW_SPEED_TYPE);
+	MGPIO_SetMode(PORTA,PIN3,GENRAL_PURPOSE_OUTPUT_MODE);
+	MGPIO_SetOutputPinMode(PORTA,PIN3,OUTPUT_PUSH_PULL,OUTPUT_LOW_SPEED_TYPE);
+	MGPIO_SetMode(PORTA,PIN4,GENRAL_PURPOSE_OUTPUT_MODE);
+	MGPIO_SetOutputPinMode(PORTA,PIN4,OUTPUT_PUSH_PULL,OUTPUT_LOW_SPEED_TYPE);
+	MGPIO_SetMode(PORTA,PIN5,GENRAL_PURPOSE_OUTPUT_MODE);
+	MGPIO_SetOutputPinMode(PORTA,PIN5,OUTPUT_PUSH_PULL,OUTPUT_LOW_SPEED_TYPE);
+	MGPIO_SetMode(PORTA,PIN6,GENRAL_PURPOSE_OUTPUT_MODE);
+	MGPIO_SetOutputPinMode(PORTA,PIN6,OUTPUT_PUSH_PULL,OUTPUT_LOW_SPEED_TYPE);
+	MGPIO_SetMode(PORTA,PIN7,GENRAL_PURPOSE_OUTPUT_MODE);
+	MGPIO_SetOutputPinMode(PORTA,PIN7,OUTPUT_PUSH_PULL,OUTPUT_LOW_SPEED_TYPE);
+
+	MGPIO_SetPinValue(PORTA,PIN0,GPIO_PIN_LEVEL_LOW);
+	MGPIO_SetPinValue(PORTA,PIN1,GPIO_PIN_LEVEL_LOW);
+	MGPIO_SetPinValue(PORTA,PIN2,GPIO_PIN_LEVEL_LOW);
+	MGPIO_SetPinValue(PORTA,PIN3,GPIO_PIN_LEVEL_LOW);
+	MGPIO_SetPinValue(PORTA,PIN4,GPIO_PIN_LEVEL_LOW);
+	MGPIO_SetPinValue(PORTA,PIN5,GPIO_PIN_LEVEL_LOW);
+	MGPIO_SetPinValue(PORTA,PIN6,GPIO_PIN_LEVEL_LOW);
+	MGPIO_SetPinValue(PORTA,PIN7,GPIO_PIN_LEVEL_LOW);
+
+
+	MGPIO_SetMode(PORTB,PIN0,INPUT_RESET_STATE);
+	MGPIO_SetInputPinMode(PORTB,PIN0,PULL_UP);
+
+	MGPIO_SetMode(PORTB,PIN1,INPUT_RESET_STATE);
+	MGPIO_SetInputPinMode(PORTB,PIN1,PULL_UP);
+
+	/* Set Groups and Sub Groups */
+	MNVIC_VoidSetInterruptGroupMode(GROUP_2_SUB_8);
+	MNVIC_VoidSetInterruptPriority(6,1,0);
+	MNVIC_VoidSetInterruptPriority(7,0,0);
+
+//	SWITCH_CPU_AccessLevel(UNPRIVILEGED);
+
+	MNVIC_VoidEnbleInterrupt(6);
+	MNVIC_VoidEnbleInterrupt(7);
+
+
+
+
+	/* Set the call back of the external 0 */
+	MEXTI_voidSetCallBack(EXTI_LINE_0,func2);
+	/* Set the call back of the external 1 */
+	MEXTI_voidSetCallBack(EXTI_LINE_1,func1);
+
+	/* Set the source of the external interrupt 0 */
+	MEXTI_voidInterruptSetPort(EXTI_LINE_0,PORTB_PIN);
+	/* Set the source of the external interrupt 1 */
+	MEXTI_voidInterruptSetPort(EXTI_LINE_1,PORTB_PIN);
+
+	MEXTI_voidInterruptTrigger(EXTI_LINE_0,EXTI_ONCHANGE);
+	MEXTI_voidInterruptTrigger(EXTI_LINE_1,EXTI_ONCHANGE);
+
+	MEXTI_voidInterruptEnableDisable(EXTI_LINE_0,EXTI_ENABLE);
+	MEXTI_voidInterruptEnableDisable(EXTI_LINE_1,EXTI_ENABLE);
+
+
+
+//	SWITCH_CPU_AccessLevel(PRIVILEGED);
+
+	/* */
+	while(1)
+	{
+
+
+	}
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+void func1(void)
+{
+	while (1){
+			MGPIO_SetPinValue(PORTA,PIN7,GPIO_PIN_LEVEL_LOW);
+			MGPIO_SetPinValue(PORTA,PIN0,GPIO_PIN_LEVEL_HIGH);
+			SYSTICK_voidDelayMs(1000);
+			MGPIO_SetPinValue(PORTA,PIN0,GPIO_PIN_LEVEL_LOW);
+			MGPIO_SetPinValue(PORTA,PIN1,GPIO_PIN_LEVEL_HIGH);
+			SYSTICK_voidDelayMs(1000);
+			MGPIO_SetPinValue(PORTA,PIN1,GPIO_PIN_LEVEL_LOW);
+			MGPIO_SetPinValue(PORTA,PIN2,GPIO_PIN_LEVEL_HIGH);
+			SYSTICK_voidDelayMs(1000);
+			MGPIO_SetPinValue(PORTA,PIN2,GPIO_PIN_LEVEL_LOW);
+			MGPIO_SetPinValue(PORTA,PIN3,GPIO_PIN_LEVEL_HIGH);
+			SYSTICK_voidDelayMs(1000);
+			MGPIO_SetPinValue(PORTA,PIN3,GPIO_PIN_LEVEL_LOW);
+			MGPIO_SetPinValue(PORTA,PIN4,GPIO_PIN_LEVEL_HIGH);
+			SYSTICK_voidDelayMs(1000);
+			MGPIO_SetPinValue(PORTA,PIN4,GPIO_PIN_LEVEL_LOW);
+			MGPIO_SetPinValue(PORTA,PIN5,GPIO_PIN_LEVEL_HIGH);
+			SYSTICK_voidDelayMs(1000);
+			MGPIO_SetPinValue(PORTA,PIN5,GPIO_PIN_LEVEL_LOW);
+			MGPIO_SetPinValue(PORTA,PIN6,GPIO_PIN_LEVEL_HIGH);
+			SYSTICK_voidDelayMs(1000);
+			MGPIO_SetPinValue(PORTA,PIN6,GPIO_PIN_LEVEL_LOW);
+			MGPIO_SetPinValue(PORTA,PIN7,GPIO_PIN_LEVEL_HIGH);
+			SYSTICK_voidDelayMs(1000);
+		}
+
+
+}
+
+void func2(void)
+{
+	MGPIO_SetPinValue(PORTA,PIN0,GPIO_PIN_LEVEL_HIGH);
+	MGPIO_SetPinValue(PORTA,PIN1,GPIO_PIN_LEVEL_HIGH);
+	MGPIO_SetPinValue(PORTA,PIN2,GPIO_PIN_LEVEL_HIGH);
+	MGPIO_SetPinValue(PORTA,PIN3,GPIO_PIN_LEVEL_HIGH);
+	MGPIO_SetPinValue(PORTA,PIN4,GPIO_PIN_LEVEL_HIGH);
+	MGPIO_SetPinValue(PORTA,PIN5,GPIO_PIN_LEVEL_HIGH);
+	MGPIO_SetPinValue(PORTA,PIN6,GPIO_PIN_LEVEL_HIGH);
+	MGPIO_SetPinValue(PORTA,PIN7,GPIO_PIN_LEVEL_HIGH);
+
+	SYSTICK_voidDelayMs(5000);
+}

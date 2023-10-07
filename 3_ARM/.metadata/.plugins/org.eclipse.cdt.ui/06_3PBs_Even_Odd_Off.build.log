@@ -1,0 +1,11 @@
+19:29:31 **** Incremental Build of configuration Debug for project 06_3PBs_Even_Odd_Off ****
+make all 
+Invoking: GNU Arm Cross Print Size
+arm-none-eabi-size --format=berkeley "06_3PBs_Even_Odd_Off.elf"
+   text	   data	    bss	    dec	    hex	filename
+   9548	    148	    420	  10116	   2784	06_3PBs_Even_Odd_Off.elf
+Finished building: 06_3PBs_Even_Odd_Off.siz
+ 
+
+19:29:33 Build Finished. 0 errors, 0 warnings. (took 1s.190ms)
+
