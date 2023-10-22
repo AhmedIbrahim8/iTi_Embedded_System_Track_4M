@@ -1,0 +1,129 @@
+
+
+
+
+
+
+
+
+
+
+/* Standard Types File */
+#include "../include/STD_Types.h"
+/* Bit Math File */
+#include "../include/BIT_MATH.h"
+
+/* RCC Specified Header Files */
+#include "../include/MTIMER_Interface.h"
+#include "../include/MTIMER_Config.h"
+#include "../include/MTIMER_Private.h"
+
+
+
+void TIMER_Init(TIMER_configType *Configuration){
+	if(Configuration->timer_id == TIMER2_SELECTION){
+		TIMER2->CR1 = (Configuration->PreloadType         << ARPE)\
+				|(Configuration->AlignedType         << CMS0)\
+				|(Configuration->CountMode           << DIR )\
+				|(Configuration->OnePulseMode        << OPM)\
+				|(Configuration->UpdateRequestSource << URS);
+		/* Adjust the slave mode selection */
+		/* Use the internal clock */
+		TIMER2->SMCR = 0;
+		/* Set UG Bit */
+		TIMER2->EGR = 1;
+
+		/* Choose the Output Compare mode of the channel */
+		if(Configuration->ChannelID == TIMER_CHANNEL_1){
+			/* Adjust the output compare Channel Mode */
+			TIMER2->CCMR1 = (TIMER2->CCMR1 & CHANNEL1_MASK)|(Configuration->Mode <<OC1M0);
+			/* Set OC1PE Bit */
+			SET_BIT(TIMER2->CCMR1,OC1PE);
+			/* Adjust the polarity  */
+			SET_BIT(TIMER2->CCER , CC1P);
+			/* Set the channel to be active to output the desired signal */
+			SET_BIT(TIMER2->CCER , CC1E);
+			/* Adjust the compare calue */
+			TIMER2->CCR1 = Configuration->ComapreValue;
+		}
+		else if(Configuration->ChannelID == TIMER_CHANNEL_2){
+
+		}
+		else if(Configuration->ChannelID == TIMER_CHANNEL_3){
+
+		}
+		else if(Configuration->ChannelID == TIMER_CHANNEL_4){
+
+		}
+
+		/* Adjust Auto reload register */
+		TIMER2->ARR = Configuration->ReloadValue;
+
+		/* Adjust the pre-scaler Value */
+		TIMER2->PSC = Configuration->PrescalerValue;
+
+	}
+	else if(Configuration->timer_id == TIMER5_SELECTION){
+
+	}
+	else if(Configuration->timer_id == TIMER3_SELECTION){
+
+	}
+	else if(Configuration->timer_id == TIMER4_SELECTION){
+
+	}
+
+
+}
+
+
+void TIMER_Start(TIMER_IDType Timer_Number){
+	switch(Timer_Number)
+	{
+	case TIMER2_SELECTION:
+		SET_BIT(TIMER2->CR1,CEN);
+		break;
+	case TIMER3_SELECTION:
+		SET_BIT(TIMER3->CR1,CEN);
+		break;
+	case TIMER4_SELECTION:
+		SET_BIT(TIMER4->CR1,CEN);
+		break;
+	case TIMER5_SELECTION:
+		SET_BIT(TIMER5->CR1,CEN);
+		break;
+	}
+
+}
+
+
+void TIMER_Stop(TIMER_IDType Timer_Number){
+	switch(Timer_Number)
+	{
+	case TIMER2_SELECTION:
+		CLEAR_BIT(TIMER2->CR1,CEN);
+		break;
+	case TIMER3_SELECTION:
+		CLEAR_BIT(TIMER3->CR1,CEN);
+		break;
+	case TIMER4_SELECTION:
+		CLEAR_BIT(TIMER4->CR1,CEN);
+		break;
+	case TIMER5_SELECTION:
+		CLEAR_BIT(TIMER5->CR1,CEN);
+		break;
+	}
+}
+
+
+void TIMER_SetPrescaler(TIMER_IDType Timer_Number , TIMER_PrescalerType prescaler){
+
+}
+
+
+
+void TIMER_DeInit(TIMER_IDType Timer_Number){
+
+
+
+}

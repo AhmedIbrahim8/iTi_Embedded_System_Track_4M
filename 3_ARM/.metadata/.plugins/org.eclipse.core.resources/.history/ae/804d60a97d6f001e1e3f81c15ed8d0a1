@@ -1,0 +1,25 @@
+/* Standard Types File */
+#include <GPT_Config.h>
+#include "../include/STD_Types.h"
+/* Bit Math File */
+#include "../include/BIT_MATH.h"
+
+/* RCC Specified Header Files */
+#include "../include/GPT_Interface.h"
+#include "../include/MTIMER_Private.h"
+
+
+
+
+TIMER_configType Timer_configuration={
+	TIMER2_SELECTION,
+	TIMER_UPDATE_EVENT_ENABLED_INTERRUPT_FLAG_ENABLED,
+	TIMER_ARR_NOT_BUFFERED,
+	TIMER_EGDE_ALIGNED_MODE,
+	COUNT_UP,
+	TIMER_NO_STOP,
+	TIMER_ONLY_COUNTER_OVF_UNF_GENERATE,
+	TIMER_PWM_MODE_1,
+	TIMER_CHANNEL_4,
+	ACTIVE_HIGH
+};

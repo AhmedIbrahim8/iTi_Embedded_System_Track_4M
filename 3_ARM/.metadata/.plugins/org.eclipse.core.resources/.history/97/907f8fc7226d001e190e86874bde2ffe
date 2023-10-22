@@ -1,0 +1,57 @@
+#include "../include/STD_Types.h"
+#include "../include/BIT_MATH.h"
+
+#include "../include/MRCC_Interface.h"
+
+#include "../include/MNVIC_Interface.h"
+
+
+#include "../include/MGPIO_Interface.h"
+
+
+#include "../include/MSYSTICK_Interface.h"
+
+#include "../include/MTIMER_Interface.h"
+
+
+
+
+int main(){
+	u32 counter=0;
+	u32 counter1=0;
+	/* Initialize System Clock*/
+	MRCC_Init();
+
+	SYSTICK_voidInit();
+
+	MRCC_Enable_Peripheral(RCC_APB1,RCC_APB1_TIM2);
+	MRCC_Enable_Peripheral(RCC_AHB1,RCC_AHB1_GPIOA);
+
+	MGPIO_SetMode(PORTA,PIN1,ALTERNATE_FUNCTION_MODE);
+	MGPIO_SetAlternativeFuncPin(PORTA,PIN1,AF1_TIM1_TIM2);
+
+	TIMER_Init(&Timer_configuration);
+
+	TIMER_SetPrescaler(TIMER2_SELECTION, 15);
+
+	TIMER_SetDutyCycle(TIMER2_SELECTION, TIMER_CHANNEL_2 , 3);
+	for(counter=0;counter<5000;counter++);
+
+	TIMER_SetARR(TIMER2_SELECTION, 19999);
+
+	TIMER_ClearTimerCount(TIMER2_SELECTION);
+
+
+	TIMER_Start(TIMER2_SELECTION);
+	while(1){
+		for(counter = 3;counter<=12;counter++){
+			TIMER_SetDutyCycle(TIMER2_SELECTION, TIMER_CHANNEL_2 , counter);
+			SYSTICK_voidDelayMs(100);
+		}
+		for(counter = 11;counter>3;counter--){
+			TIMER_SetDutyCycle(TIMER2_SELECTION, TIMER_CHANNEL_2 , counter);
+			SYSTICK_voidDelayMs(100);
+			}
+	}
+
+}

@@ -1,0 +1,86 @@
+/*
+ * MTIMER_Private.h
+ *
+ *  Created on: Oct 16, 2023
+ *      Author: Ahmed
+ */
+
+#ifndef MTIMER_PRIVATE_H_
+#define MTIMER_PRIVATE_H_
+
+/**************************************************************************/
+/* GPIOA Module Base Address From Reference Manual page 38                */
+/* GPIOA is connected to AHB1 Bus                                         */
+/* Start from    address                 0x4002 0000                      */
+/*                                       -----------                      */
+/* End   at      address                 0x4002 03FF                      */
+
+/* GPIOB is connected to AHB1 Bus                                         */
+/* Start from    address                 0x4002 0400                      */
+/*                                       -----------                      */
+/* End   at      address                 0x4002 07FF                      */
+
+/* GPIOC is connected to AHB1 Bus                                         */
+/* Start from    address                 0x4002 0800                      */
+/*                                       -----------                      */
+/* End   at      address                 0x4002 0BFF                      */
+
+/**************************************************************************/
+#define  TIMER2_BASE_ADDRESS       (0x40000000)
+
+#define  TIMER3_BASE_ADDRESS       (0x40000400)
+
+#define  TIMER4_BASE_ADDRESS       (0x40000800)
+
+#define  TIMER5_BASE_ADDRESS       (0x40000C00)
+
+#define  TIMER9_BASE_ADDRESS       (0x40014000)
+
+#define  TIMER10_BASE_ADDRESS      (0x40014400)
+
+#define  TIMER11_BASE_ADDRESS      (0x40014800)
+
+/**************************************************************************/
+/* Typedef for all GPIO Module Register                                   */
+/* Reference Manual Page 164 8.4.11 GPIO register map                     */
+/**************************************************************************/
+
+typedef struct{
+	u32 CR1;
+	u32 CR2;
+	u32 SMCR;
+	u32 DIER;
+	u32 SR;
+	u32 EGR;
+	u32 CCMR1;
+	u32 CCMR2;
+	u32 CCER;
+	u32 CNT;
+	u32 PSC;
+	u32 ARR;
+	u32 CCR1;
+	u32 CCR2;
+	u32 CCR3;
+	u32 CCR4;
+	u32 RESERVED1;
+	u32 DCR;
+	u32 DMAR;
+	u32 TIM2_OR;
+	u32 TIM5_OR;
+}TIMER_t;
+
+
+/* Macro to point to the base address of the GPIO Module */
+#define       GPIOA          ((volatile GPIO_t*)GPIOA_BASE_ADDRESS)
+
+#define       GPIOB          ((volatile GPIO_t*)GPIOB_BASE_ADDRESS)
+
+#define       GPIOC          ((volatile GPIO_t*)GPIOC_BASE_ADDRESS)
+
+
+
+
+
+
+
+#endif /* MTIMER_PRIVATE_H_ */

@@ -14,10 +14,13 @@ C_SRCS += \
 ../src/MRCC_Program.c \
 ../src/MSPI_Program.c \
 ../src/MSYSTICK_Program.c \
+../src/MTIMER_PBconfig.c \
+../src/MTIMER_Program.c \
 ../src/MUSART_Program.c \
 ../src/initialize-hardware.c \
 ../src/main.c \
 ../src/main_DMA.c \
+../src/main_pwm.c \
 ../src/main_uart_test.c \
 ../src/stm32f4xx_hal_msp.c \
 ../src/write.c 
@@ -33,10 +36,13 @@ OBJS += \
 ./src/MRCC_Program.o \
 ./src/MSPI_Program.o \
 ./src/MSYSTICK_Program.o \
+./src/MTIMER_PBconfig.o \
+./src/MTIMER_Program.o \
 ./src/MUSART_Program.o \
 ./src/initialize-hardware.o \
 ./src/main.o \
 ./src/main_DMA.o \
+./src/main_pwm.o \
 ./src/main_uart_test.o \
 ./src/stm32f4xx_hal_msp.o \
 ./src/write.o 
@@ -52,10 +58,13 @@ C_DEPS += \
 ./src/MRCC_Program.d \
 ./src/MSPI_Program.d \
 ./src/MSYSTICK_Program.d \
+./src/MTIMER_PBconfig.d \
+./src/MTIMER_Program.d \
 ./src/MUSART_Program.d \
 ./src/initialize-hardware.d \
 ./src/main.d \
 ./src/main_DMA.d \
+./src/main_pwm.d \
 ./src/main_uart_test.d \
 ./src/stm32f4xx_hal_msp.d \
 ./src/write.d 

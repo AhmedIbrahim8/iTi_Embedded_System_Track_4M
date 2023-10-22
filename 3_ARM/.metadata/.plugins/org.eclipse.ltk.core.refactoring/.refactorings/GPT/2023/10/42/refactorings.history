@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;GPT/include/MTIMER_Config.h&apos; to &apos;GPT_Config.h&apos;" description="Rename resource &apos;MTIMER_Config.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="include/MTIMER_Config.h" name="GPT_Config.h" stamp="1697829581777" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;GPT/include/MTIMER_Private.h&apos; to &apos;GPT_Private.h&apos;" description="Rename resource &apos;MTIMER_Private.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="include/MTIMER_Private.h" name="GPT_Private.h" stamp="1697829599856" updateReferences="true"/>
+</session>

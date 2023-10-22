@@ -1,0 +1,13 @@
+
+
+
+
+
+TIMER_configType Timer_configuration={
+	TIMER2,
+	TIMER_ARR_BUFFERED,
+	TIMER_EGDE_ALIGNED_MODE,
+	COUNT_UP,
+	TIMER_NO_STOP,
+
+};

@@ -1,0 +1,58 @@
+/*
+ * MTIMER_Interface.h
+ *
+ *  Created on: Oct 16, 2023
+ *      Author: Ahmed
+ */
+
+#ifndef MTIMER_INTERFACE_H_
+#define MTIMER_INTERFACE_H_
+
+
+
+/********************************************************************************************/
+/************************************* GPT INDEX *******************************************/
+/********************************************************************************************/
+typedef enum{
+	TIMER2,TIMER5,TIMER3,TIMER4
+}TIMER_IDType;
+
+typedef enum{
+	COUNT_UP,COUNT_DOWN
+}TIMER_CountModeType;
+
+typedef  u32 TIMER_AutoReloadType;
+
+typedef  u32 TIMER_PrescalerType;
+
+typedef enum{
+	TIMER_INPUT_CAPTURE,TIMER_OUTPUT_COMPARE,TIMER_PWM,TIMER_ONE_PULSE_MODE
+}TIMER_ModeType;
+
+
+typedef u32 TIMER_Ton_Value;
+
+typedef struct{
+	TIMER_IDType timer_id;
+	TIMER_AutoReloadType ReloadValue;
+	TIMER_ModeType Mode;
+	TIMER_Ton_Value OnValue;
+	TIMER_CountModeType CountMode;
+	TIMER_PrescalerType PrescalerValue;
+}TIMER_configType;
+
+
+
+
+
+
+
+
+
+void TIMER_Init(TIMER_configType *Configuration);
+
+void TIMER_Start(TIMER_IDType Timer_Number);
+
+void TIMER_DeInit(TIMER_IDType Timer_Number);
+
+#endif /* MTIMER_INTERFACE_H_ */
